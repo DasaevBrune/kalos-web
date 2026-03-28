@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es" style="scroll-behavior:smooth"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kalos - El arte de la barbería</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#b7b5b4",
+              "on-error-container": "#ffdad6",
+              "primary-fixed-dim": "#e9c347",
+              "on-error": "#690005",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary-container": "#224288",
+              "tertiary": "#becdff",
+              "primary-fixed": "#ffe088",
+              "surface-variant": "#353534",
+              "background": "#131313",
+              "secondary": "#c8c6c5",
+              "on-surface": "#e5e2e1",
+              "on-tertiary": "#012b72",
+              "tertiary-fixed-dim": "#b2c5ff",
+              "surface-tint": "#e9c347",
+              "on-primary-container": "#554300",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed-dim": "#c8c6c5",
+              "secondary-fixed": "#e5e2e1",
+              "on-secondary": "#313030",
+              "on-surface-variant": "#d0c6af",
+              "surface-container-highest": "#353534",
+              "on-primary-fixed-variant": "#574500",
+              "surface-container-high": "#2a2a2a",
+              "on-tertiary-fixed-variant": "#24438a",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "surface": "#131313",
+              "primary-container": "#d4af35",
+              "outline-variant": "#4d4635",
+              "on-primary-fixed": "#241a00",
+              "on-primary": "#3c2f00",
+              "primary": "#f2ca4f",
+              "on-secondary-fixed-variant": "#474746",
+              "tertiary-fixed": "#dae2ff",
+              "inverse-on-surface": "#313030",
+              "tertiary-container": "#95b1ff",
+              "surface-container-lowest": "#0e0e0e",
+              "on-background": "#e5e2e1",
+              "secondary-container": "#474746",
+              "surface-bright": "#3a3939",
+              "on-secondary-fixed": "#1c1b1b",
+              "surface-dim": "#131313",
+              "surface-container": "#201f1f",
+              "on-tertiary-fixed": "#001848",
+              "outline": "#99907b",
+              "inverse-primary": "#735c00"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"],
+              "display": ["Cormorant Garamond", "serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+      }
+      .gold-glow {
+        background: radial-gradient(circle at center, rgba(242, 202, 79, 0.15) 0%, rgba(19, 19, 19, 0) 70%);
+      }
+      .asymmetric-stagger:nth-child(even) {
+        transform: translateY(2rem);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-[#131313]/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-8 md:px-12 py-5 max-w-7xl mx-auto">
+<a href="#" class="text-2xl font-black tracking-tighter text-[#f2ca4f] font-headline">Kalos</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-headline font-medium text-sm text-[#f2ca4f] font-bold border-b-2 border-[#f2ca4f] pb-1" href="#experience">Experience</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300" href="#the-artisans">The Artisans</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300" href="#for-barbers">For Barbers</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300" href="#download">Download</a>
+</div>
+<div class="flex items-center gap-4">
+<button id="nav-cta" class="hidden md:block bg-primary-container text-on-primary px-6 py-2 rounded-lg font-headline font-medium text-sm hover:opacity-80 transition-all duration-300 active:scale-90 shadow-[0_0_15px_rgba(212,175,53,0.3)]">
+  Join the Club
+</button>
+<button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú">
+<span class="w-6 h-0.5 bg-on-surface transition-all duration-300" id="bar1"></span>
+<span class="w-6 h-0.5 bg-on-surface transition-all duration-300" id="bar2"></span>
+<span class="w-6 h-0.5 bg-on-surface transition-all duration-300" id="bar3"></span>
+</button>
+</div>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden flex-col gap-6 px-8 pb-8 pt-4 bg-[#131313]/95 backdrop-blur-md">
+<a class="font-headline font-medium text-sm text-[#f2ca4f]" href="#experience" onclick="closeMobileMenu()">Experience</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#the-artisans" onclick="closeMobileMenu()">The Artisans</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#for-barbers" onclick="closeMobileMenu()">For Barbers</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#download" onclick="closeMobileMenu()">Download</a>
+<button class="bg-primary-container text-on-primary px-6 py-3 rounded-lg font-headline font-medium text-sm w-full">Join the Club</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex flex-col items-center justify-center pt-32 overflow-hidden px-6">
+<div class="absolute inset-0 gold-glow -z-10"></div>
+<div class="text-center max-w-4xl mx-auto z-10">
+<span class="font-headline uppercase tracking-[0.3em] text-primary text-xs mb-6 block font-bold">El arte de la barbería</span>
+<h1 class="font-display text-6xl md:text-8xl text-on-surface leading-none mb-8">
+                Tu próxima cita, <br/> <span class="italic text-primary-fixed-dim">a un toque</span>
+</h1>
+<p class="font-body text-lg md:text-xl text-on-secondary-container max-w-2xl mx-auto mb-12">
+                La plataforma premium para barberías modernas y sus clientes. Gestión impecable, estilo inigualable.
+            </p>
+<div class="flex flex-wrap justify-center gap-6 mb-20">
+<button class="flex items-center gap-3 px-8 py-4 rounded-xl border border-outline/20 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="apple">ios</span>
+<div class="text-left">
+<div class="text-[10px] uppercase tracking-widest text-on-secondary-container">Download on the</div>
+<div class="text-sm font-bold font-headline">App Store</div>
+</div>
+</button>
+<button class="flex items-center gap-3 px-8 py-4 rounded-xl border border-outline/20 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="play_store">play_store_installed</span>
+<div class="text-left">
+<div class="text-[10px] uppercase tracking-widest text-on-secondary-container">Get it on</div>
+<div class="text-sm font-bold font-headline">Google Play</div>
+</div>
+</button>
+</div>
+</div>
+<div class="relative w-full max-w-lg mx-auto mt-10">
+<div class="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full"></div>
+<img alt="Smartphone showing Kalos App UI" class="relative z-10 w-full h-auto drop-shadow-2xl" data-alt="high-end smartphone mockup displaying a sleek minimalist dark mode mobile app interface with gold accents and luxury typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVQZmcioNza-lPFnju-ai0YPJqyTwJnTTfXyT15nXaMZKdKPfLxvJAQvYOjr_xvpz1X63JQEyyNlJZpWvZWpMqL84MV6bTWf8vp3yFSTzp9IsYPAz1GuWbLr-pIYG5HYzxr5Uoz_FfjdV2uOfS6t5RlmH_gDY5DmtvMuv4e-d0TlFZsA4V33idOio1WKAUPk6QhlafcnbJfh3yuU9amqWbdCLdOkhkd4emQ4WtqmwPLvK0bXq5XOjT34fiUTJtZxIEC9RMMC1SrI"/>
+</div>
+</header>
+<!-- For Whom Section -->
+<section id="experience" class="py-32 px-12 max-w-7xl mx-auto">
+<div class="grid md:grid-cols-2 gap-12">
+<!-- For Clients -->
+<div class="group relative p-12 bg-[#1c1b1b] rounded-2xl border-t-2 border-primary-container/30 overflow-hidden transition-all hover:border-primary">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl" data-icon="content_cut">content_cut</span>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="person">person</span>
+<h3 class="font-display text-4xl text-on-surface mb-4">Para clientes</h3>
+<p class="text-on-secondary-container leading-relaxed mb-8">
+                    Encuentra a los mejores artesanos de tu ciudad, reserva en segundos y mantén tu estilo impecable sin esperas innecesarias.
+                </p>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all" href="#">
+                    Explorar ahora <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- For Barbers -->
+<div class="group relative p-12 bg-[#1c1b1b] rounded-2xl border-t-2 border-primary-container/30 overflow-hidden transition-all hover:border-primary">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl" data-icon="monitoring">monitoring</span>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="storefront">storefront</span>
+<h3 class="font-display text-4xl text-on-surface mb-4">Para barberías</h3>
+<p class="text-on-secondary-container leading-relaxed mb-8">
+                    Optimiza tu agenda, fideliza a tus clientes y haz crecer tu negocio con herramientas diseñadas por y para profesionales del cabello.
+                </p>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all" href="#">
+                    Registrar negocio <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- The Artisans Section -->
+<section id="the-artisans" class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-12">
+<div class="mb-20">
+<span class="font-headline uppercase tracking-[0.3em] text-primary text-xs mb-4 block font-bold">Artesanos del cabello</span>
+<h2 class="font-display text-5xl text-on-surface mb-4">Los Artisans</h2>
+<div class="w-24 h-1 bg-primary mb-6"></div>
+<p class="text-on-secondary-container max-w-xl text-lg">Profesionales seleccionados por su técnica, pasión y resultados. Cada barbero en Kalos es un artesano en su oficio.</p>
+</div>
+<div class="grid md:grid-cols-12 gap-6">
+<!-- Featured barber (large) -->
+<div class="md:col-span-5 group relative rounded-2xl overflow-hidden bg-surface-container cursor-pointer">
+<div class="aspect-[3/4] relative overflow-hidden">
+<div class="w-full h-full bg-gradient-to-br from-[#201f1f] to-[#2a2a2a] flex items-center justify-center">
+<span class="font-display text-9xl text-outline/20 select-none">MR</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/95 via-surface/30 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="text-primary text-sm font-bold">4.9 · 312 reseñas</span>
+</div>
+<h3 class="font-display text-3xl text-on-surface mb-1">Marcos Reyes</h3>
+<p class="text-primary-fixed-dim text-xs font-headline uppercase tracking-widest mb-3">Degradados · Barba clásica</p>
+<p class="text-on-secondary-container text-sm">Madrid · Malasaña</p>
+</div>
+</div>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+<span class="bg-primary-container text-on-primary text-xs font-bold px-4 py-2 rounded-full">Reservar</span>
+</div>
+</div>
+<!-- Right column — 3 horizontal cards -->
+<div class="md:col-span-7 flex flex-col gap-5">
+<div class="group flex gap-5 p-6 bg-surface-container rounded-2xl cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-[#2a2a2a] flex items-center justify-center">
+<span class="font-display text-3xl text-outline/30 select-none">AS</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16">star</span>
+<span class="text-primary text-xs font-bold">4.8 · 198 reseñas</span>
+</div>
+<h3 class="font-display text-2xl text-on-surface mb-1">Álvaro Serrano</h3>
+<p class="text-primary-fixed-dim text-xs font-headline uppercase tracking-widest mb-1">Fade moderno · Diseños</p>
+<p class="text-on-secondary-container text-sm">Barcelona · Gràcia</p>
+</div>
+<div class="self-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+<div class="group flex gap-5 p-6 bg-surface-container rounded-2xl cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-[#2a2a2a] flex items-center justify-center">
+<span class="font-display text-3xl text-outline/30 select-none">DL</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16">star</span>
+<span class="text-primary text-xs font-bold">5.0 · 87 reseñas</span>
+</div>
+<h3 class="font-display text-2xl text-on-surface mb-1">Daniel Lagos</h3>
+<p class="text-primary-fixed-dim text-xs font-headline uppercase tracking-widest mb-1">Barbas · Corte clásico</p>
+<p class="text-on-secondary-container text-sm">Sevilla · Triana</p>
+</div>
+<div class="self-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+<div class="group flex gap-5 p-6 bg-surface-container rounded-2xl cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-[#2a2a2a] flex items-center justify-center">
+<span class="font-display text-3xl text-outline/30 select-none">JM</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16">star</span>
+<span class="text-primary text-xs font-bold">4.7 · 245 reseñas</span>
+</div>
+<h3 class="font-display text-2xl text-on-surface mb-1">Javier Molina</h3>
+<p class="text-primary-fixed-dim text-xs font-headline uppercase tracking-widest mb-1">Skin fade · Texturizado</p>
+<p class="text-on-secondary-container text-sm">Valencia · Ruzafa</p>
+</div>
+<div class="self-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Client Flow -->
+<section class="py-32 bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-12">
+<div class="mb-20">
+<h2 class="font-display text-5xl text-on-surface mb-4">Reservar nunca fue tan fácil</h2>
+<div class="w-24 h-1 bg-primary"></div>
+</div>
+<div class="relative grid md:grid-cols-3 gap-16">
+<!-- Connector Line -->
+<div class="hidden md:block absolute top-10 left-0 w-full h-px bg-outline-variant/30 -z-0"></div>
+<div class="relative z-10 flex flex-col items-start">
+<div class="w-20 h-20 rounded-full bg-surface border border-primary flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(242,202,79,0.1)]">
+<span class="text-primary font-display text-3xl font-bold italic">1</span>
+</div>
+<h4 class="font-headline text-xl text-on-surface mb-3">Elige tu barbería</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+                        Filtra por ubicación, valoraciones y el estilo específico que buscas para tu próximo cambio.
+                    </p>
+</div>
+<div class="relative z-10 flex flex-col items-start">
+<div class="w-20 h-20 rounded-full bg-surface border border-primary flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(242,202,79,0.1)]">
+<span class="text-primary font-display text-3xl font-bold italic">2</span>
+</div>
+<h4 class="font-headline text-xl text-on-surface mb-3">Selecciona tu servicio</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+                        Desde degradados clásicos hasta rituales de barba con toalla caliente. Tú decides el nivel.
+                    </p>
+</div>
+<div class="relative z-10 flex flex-col items-start">
+<div class="w-20 h-20 rounded-full bg-surface border border-primary flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(242,202,79,0.1)]">
+<span class="text-primary font-display text-3xl font-bold italic">3</span>
+</div>
+<h4 class="font-headline text-xl text-on-surface mb-3">Confirma tu cita</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+                        Elige el profesional y la hora que mejor te convenga. Recibe recordatorios automáticos.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Barber Flow -->
+<section id="for-barbers" class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-12">
+<div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-display text-5xl text-on-surface mb-4">Tu barbería, bajo control</h2>
+<p class="text-on-secondary-container text-lg">Digitaliza la esencia de tu taller. Kalos se encarga de la logística para que tú te enfoques en el arte.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-10 bg-surface-container rounded-xl flex flex-col gap-6 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="calendar_month">calendar_month</span>
+<div>
+<h4 class="font-headline text-xl text-on-surface mb-3 italic">Tu agenda en tiempo real</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">Sincronización instantánea en todos tus dispositivos. Evita solapamientos y huecos vacíos.</p>
+</div>
+</div>
+<div class="p-10 bg-surface-container rounded-xl flex flex-col gap-6 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="manage_accounts">manage_accounts</span>
+<div>
+<h4 class="font-headline text-xl text-on-surface mb-3 italic">Gestiona cada cita</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">Acepta, reprograma o cancela citas con un simple gesto. Comunicación directa con el cliente.</p>
+</div>
+</div>
+<div class="p-10 bg-surface-container rounded-xl flex flex-col gap-6 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="insights">insights</span>
+<div>
+<h4 class="font-headline text-xl text-on-surface mb-3 italic">Panel de resultados</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">Analiza tus ingresos, los servicios más demandados y el rendimiento de tu equipo.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features Grid -->
+<section class="py-32 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/10">
+<!-- Feature 1 -->
+<div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="update">update</span>
+<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Reservas 24/7</h5>
+<p class="text-on-secondary-container text-sm">Tu negocio nunca cierra. Permite que tus clientes reserven mientras duermes.</p>
+</div>
+<!-- Feature 2 -->
+<div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="groups">groups</span>
+<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Múltiples barberos</h5>
+<p class="text-on-secondary-container text-sm">Gestión individualizada para cada miembro de tu equipo y sus especialidades.</p>
+</div>
+<!-- Feature 3 -->
+<div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="dashboard">dashboard</span>
+<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Panel de control</h5>
+<p class="text-on-secondary-container text-sm">Una visión 360 de tu negocio desde cualquier lugar del mundo.</p>
+</div>
+<!-- Feature 4 -->
+<div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="history">history</span>
+<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Historial de citas</h5>
+<p class="text-on-secondary-container text-sm">Conoce las preferencias de tus clientes antes de que crucen la puerta.</p>
+</div>
+<!-- Feature 5 -->
+<div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="phonelink_erase">phonelink_erase</span>
+<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Sin llamadas</h5>
+<p class="text-on-secondary-container text-sm">Reduce las interrupciones telefónicas y optimiza el tiempo de corte.</p>
+</div>
+<!-- Feature 6 -->
+<div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="notifications_active">notifications_active</span>
+<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Confirmaciones</h5>
+<p class="text-on-secondary-container text-sm">Avisos automáticos vía push para reducir las ausencias injustificadas.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-12">
+<div class="mb-20">
+<span class="font-headline uppercase tracking-[0.3em] text-primary text-xs mb-4 block font-bold">Lo que dicen</span>
+<h2 class="font-display text-5xl text-on-surface mb-4">La experiencia Kalos</h2>
+<div class="w-24 h-1 bg-primary"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 — barbero -->
+<div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+</div>
+<p class="font-display text-xl text-on-surface italic leading-relaxed">"Antes perdía 30 minutos al teléfono para dar cita a cada cliente. Ahora llego, abro la app y ya está todo organizado. Indispensable."</p>
+<div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
+<div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
+<span class="font-display text-base text-primary">PR</span>
+</div>
+<div>
+<p class="text-on-surface font-bold text-sm">Pablo Ruiz</p>
+<p class="text-on-secondary-container text-xs">Dueño · The Cut Room, Madrid</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 — cliente -->
+<div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6 md:mt-8">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+</div>
+<p class="font-display text-xl text-on-surface italic leading-relaxed">"Encontré mi barbero en dos minutos y reservé sin llamar. Llegué, me atendieron en el acto. Es la única forma en que quiero reservar ya."</p>
+<div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
+<div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
+<span class="font-display text-base text-primary">CM</span>
+</div>
+<div>
+<p class="text-on-surface font-bold text-sm">Carlos Mendoza</p>
+<p class="text-on-secondary-container text-xs">Cliente · Barcelona</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 — barbero -->
+<div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+</div>
+<p class="font-display text-xl text-on-surface italic leading-relaxed">"El panel de control me da una visión clara de cada semana. Sé qué servicios funcionan y qué horas están más solicitadas. Un cambio real."</p>
+<div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
+<div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
+<span class="font-display text-base text-primary">LG</span>
+</div>
+<div>
+<p class="text-on-surface font-bold text-sm">Laura García</p>
+<p class="text-on-secondary-container text-xs">Gerente · Barbería Noctua, Sevilla</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Download CTA -->
+<section id="download" class="py-48 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 -z-10"></div>
+<div class="max-w-5xl mx-auto px-12 text-center">
+<h2 class="font-display text-7xl md:text-9xl text-on-surface mb-6">Descarga Kalos</h2>
+<p class="font-body text-xl md:text-2xl text-on-secondary-container mb-16 italic font-light">Disponible para iOS y Android. Únete a la nueva era del grooming.</p>
+<div class="flex flex-wrap justify-center gap-8">
+<button class="bg-[#000000] text-on-surface px-10 py-5 rounded-full flex items-center gap-4 hover:scale-105 transition-transform border border-outline-variant/20 group">
+<span class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors" data-icon="apple">ios</span>
+<div class="text-left">
+<div class="text-[10px] uppercase tracking-widest opacity-60">App Store</div>
+<div class="text-xl font-bold font-headline leading-none">iPhone</div>
+</div>
+</button>
+<button class="bg-[#000000] text-on-surface px-10 py-5 rounded-full flex items-center gap-4 hover:scale-105 transition-transform border border-outline-variant/20 group">
+<span class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors" data-icon="play_store">play_store_installed</span>
+<div class="text-left">
+<div class="text-[10px] uppercase tracking-widest opacity-60">Google Play</div>
+<div class="text-xl font-bold font-headline leading-none">Android</div>
+</div>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-[#4d4635]/15 bg-[#131313] dark:bg-[#131313]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-6">
+<div class="text-lg font-bold text-[#f2ca4f] font-headline">Kalos</div>
+<div class="flex gap-8">
+<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Privacy Policy</a>
+<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Terms of Service</a>
+<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Contact</a>
+<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Press Kit</a>
+</div>
+<p class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] opacity-100 hover:opacity-70 transition-opacity">
+                © 2025 Kalos. Crafted for the Nocturnal Artisan.
+            </p>
+</div>
+</footer>
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  let menuOpen = false;
+
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      bar1.style.transform = 'translateY(8px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      closeMobileMenu();
+    }
+  });
+
+  function closeMobileMenu() {
+    menuOpen = false;
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+    bar1.style.transform = '';
+    bar2.style.opacity = '';
+    bar3.style.transform = '';
+  }
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        entry.target.classList.remove('opacity-0', 'translate-y-8');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(el => {
+    el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
+    observer.observe(el);
+  });
+</script>
+</body></html>
