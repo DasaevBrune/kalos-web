@@ -3,10 +3,13 @@
 <html class="dark" lang="es" style="scroll-behavior:smooth"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Kalos — Reserva cita con los mejores barberos de tu ciudad. Gestión integral para barberías modernas. Disponible para iOS y Android."/>
 <title>Kalos - El arte de la barbería</title>
+<link rel="icon" href="screenshots/icon.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -97,10 +100,12 @@
 <a class="nav-link font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#experience" data-section="experience">Experience</a>
 <a class="nav-link font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#the-artisans" data-section="the-artisans">The Artisans</a>
 <a class="nav-link font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#for-barbers" data-section="for-barbers">For Barbers</a>
+<a class="nav-link font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#pricing" data-section="pricing">Precios</a>
+<a class="nav-link font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#faq" data-section="faq">FAQ</a>
 <a class="nav-link font-headline font-medium text-sm text-[#e5e2e1] hover:text-[#f2ca4f] transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#download" data-section="download">Download</a>
 </div>
 <div class="flex items-center gap-4">
-<button id="nav-cta" class="hidden md:block bg-primary-container text-on-primary px-6 py-2 rounded-lg font-headline font-medium text-sm hover:opacity-80 transition-all duration-300 active:scale-90 shadow-[0_0_15px_rgba(212,175,53,0.3)]">
+<button id="nav-cta" onclick="document.getElementById('join-modal').classList.remove('hidden')" class="hidden md:block bg-primary-container text-on-primary px-6 py-2 rounded-lg font-headline font-medium text-sm hover:opacity-80 transition-all duration-300 active:scale-90 shadow-[0_0_15px_rgba(212,175,53,0.3)]">
   Join the Club
 </button>
 <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú">
@@ -115,8 +120,10 @@
 <a class="font-headline font-medium text-sm text-[#f2ca4f]" href="#experience" onclick="closeMobileMenu()">Experience</a>
 <a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#the-artisans" onclick="closeMobileMenu()">The Artisans</a>
 <a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#for-barbers" onclick="closeMobileMenu()">For Barbers</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#pricing" onclick="closeMobileMenu()">Precios</a>
+<a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#faq" onclick="closeMobileMenu()">FAQ</a>
 <a class="font-headline font-medium text-sm text-[#e5e2e1]" href="#download" onclick="closeMobileMenu()">Download</a>
-<button class="bg-primary-container text-on-primary px-6 py-3 rounded-lg font-headline font-medium text-sm w-full">Join the Club</button>
+<button onclick="closeMobileMenu(); document.getElementById('join-modal').classList.remove('hidden')" class="bg-primary-container text-on-primary px-6 py-3 rounded-lg font-headline font-medium text-sm w-full">Join the Club</button>
 </div>
 </nav>
 <!-- Hero Section -->
@@ -132,14 +139,14 @@
             </p>
 <div class="flex flex-wrap justify-center gap-6 mb-20">
 <button class="flex items-center gap-3 px-8 py-4 rounded-xl border border-outline/20 hover:border-primary transition-all group">
-<span class="material-symbols-outlined text-primary text-2xl" data-icon="apple">ios</span>
+<span class="material-symbols-outlined text-primary text-2xl" aria-hidden="true">ios</span>
 <div class="text-left">
 <div class="text-[10px] uppercase tracking-widest text-on-secondary-container">Download on the</div>
 <div class="text-sm font-bold font-headline">App Store</div>
 </div>
 </button>
 <button class="flex items-center gap-3 px-8 py-4 rounded-xl border border-outline/20 hover:border-primary transition-all group">
-<svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <path d="M3.18 23.76c.37.2.8.22 1.2.06L16.07 12 12.3 8.23 3.18 23.76z" fill="#EA4335"/>
   <path d="M20.65 10.27L17.6 8.54l-3.87 3.46 3.87 3.87 3.06-1.74a1.75 1.75 0 000-3.86z" fill="#FBBC04"/>
   <path d="M4.38.18A1.75 1.75 0 003 1.87v20.26c0 .7.38 1.32.96 1.63L16.07 12 4.38.18z" fill="#4285F4"/>
@@ -176,29 +183,29 @@
 <!-- For Clients -->
 <div class="group relative p-12 bg-[#1c1b1b] rounded-2xl border-t-2 border-primary-container/30 overflow-hidden transition-all hover:border-primary">
 <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-9xl" data-icon="content_cut">content_cut</span>
+<span class="material-symbols-outlined text-9xl" aria-hidden="true">content_cut</span>
 </div>
-<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="person">person</span>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" aria-hidden="true">person</span>
 <h3 class="font-display text-4xl text-on-surface mb-4">Para clientes</h3>
 <p class="text-on-secondary-container leading-relaxed mb-8">
                     Encuentra a los mejores artesanos de tu ciudad, reserva en segundos y mantén tu estilo impecable sin esperas innecesarias.
                 </p>
-<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all" href="#">
-                    Explorar ahora <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all" href="#the-artisans">
+                    Explorar ahora <span class="material-symbols-outlined ml-2 text-sm" aria-hidden="true">arrow_forward</span>
 </a>
 </div>
 <!-- For Barbers -->
 <div class="group relative p-12 bg-[#1c1b1b] rounded-2xl border-t-2 border-primary-container/30 overflow-hidden transition-all hover:border-primary">
 <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-9xl" data-icon="monitoring">monitoring</span>
+<span class="material-symbols-outlined text-9xl" aria-hidden="true">monitoring</span>
 </div>
-<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="storefront">storefront</span>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" aria-hidden="true">storefront</span>
 <h3 class="font-display text-4xl text-on-surface mb-4">Para barberías</h3>
 <p class="text-on-secondary-container leading-relaxed mb-8">
-                    Optimiza tu agenda, fideliza a tus clientes y haz crecer tu negocio con herramientas diseñadas por y para profesionales del cabello.
+                    Acepta reservas 24/7 sin llamadas, gestiona tu equipo y analiza tus ingresos — todo desde una sola app.
                 </p>
-<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all" href="#">
-                    Registrar negocio <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all" href="#pricing">
+                    Registrar negocio <span class="material-symbols-outlined ml-2 text-sm" aria-hidden="true">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -219,7 +226,7 @@
 <!-- Avatar area -->
 <div class="relative flex-1 min-h-64 bg-gradient-to-br from-[#1c1b1b] to-[#2a2a2a] flex items-center justify-center">
 <div class="w-28 h-28 rounded-full bg-surface-container-highest border border-primary/30 flex items-center justify-center">
-<span class="font-display text-4xl text-primary/60 select-none">MR</span>
+<span class="font-display text-4xl text-primary/60 select-none" aria-hidden="true">MR</span>
 </div>
 <!-- Disponible badge -->
 <div class="absolute top-4 left-4 flex items-center gap-1.5 bg-surface-container-high px-3 py-1.5 rounded-full">
@@ -239,7 +246,7 @@
 <p class="text-on-secondary-container text-xs mt-0.5">Madrid · Malasaña</p>
 </div>
 <div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
 <span class="text-primary text-sm font-bold">4.9</span>
 <span class="text-on-secondary-container text-xs ml-1">312 reseñas</span>
 </div>
@@ -248,7 +255,7 @@
 <div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/15">
 <div class="flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary/60 text-sm">content_cut</span>
+<span class="material-symbols-outlined text-primary/60 text-sm" aria-hidden="true">content_cut</span>
 <span class="text-on-surface text-sm">Corte clásico</span>
 </div>
 <div class="flex items-center gap-2 text-xs text-on-secondary-container">
@@ -257,7 +264,7 @@
 </div>
 <div class="flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary/60 text-sm">face</span>
+<span class="material-symbols-outlined text-primary/60 text-sm" aria-hidden="true">face</span>
 <span class="text-on-surface text-sm">Corte + Barba</span>
 </div>
 <div class="flex items-center gap-2 text-xs text-on-secondary-container">
@@ -266,7 +273,7 @@
 </div>
 <div class="flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary/60 text-sm">auto_fix_high</span>
+<span class="material-symbols-outlined text-primary/60 text-sm" aria-hidden="true">auto_fix_high</span>
 <span class="text-on-surface text-sm">Degradado</span>
 </div>
 <div class="flex items-center gap-2 text-xs text-on-secondary-container">
@@ -283,13 +290,13 @@
 <!-- Barber card macro -->
 <div class="group flex gap-4 p-5 bg-surface-container rounded-2xl cursor-pointer hover:bg-surface-container-high transition-colors">
 <div class="w-16 h-16 rounded-full flex-shrink-0 bg-surface-container-highest border border-outline/20 flex items-center justify-center">
-<span class="font-display text-xl text-primary/50 select-none">AS</span>
+<span class="font-display text-xl text-primary/50 select-none" aria-hidden="true">AS</span>
 </div>
 <div class="flex-1 min-w-0">
 <div class="flex items-start justify-between gap-2 mb-1">
 <h3 class="font-display text-xl text-on-surface">Álvaro Serrano</h3>
 <div class="flex items-center gap-1 flex-shrink-0">
-<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16">star</span>
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16" aria-hidden="true">star</span>
 <span class="text-primary text-xs font-bold">4.8</span>
 </div>
 </div>
@@ -301,19 +308,19 @@
 </div>
 </div>
 <div class="self-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-primary text-lg">arrow_forward</span>
+<span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">arrow_forward</span>
 </div>
 </div>
 
 <div class="group flex gap-4 p-5 bg-surface-container rounded-2xl cursor-pointer hover:bg-surface-container-high transition-colors">
 <div class="w-16 h-16 rounded-full flex-shrink-0 bg-surface-container-highest border border-outline/20 flex items-center justify-center">
-<span class="font-display text-xl text-primary/50 select-none">DL</span>
+<span class="font-display text-xl text-primary/50 select-none" aria-hidden="true">DL</span>
 </div>
 <div class="flex-1 min-w-0">
 <div class="flex items-start justify-between gap-2 mb-1">
 <h3 class="font-display text-xl text-on-surface">Daniel Lagos</h3>
 <div class="flex items-center gap-1 flex-shrink-0">
-<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16">star</span>
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16" aria-hidden="true">star</span>
 <span class="text-primary text-xs font-bold">5.0</span>
 </div>
 </div>
@@ -325,19 +332,19 @@
 </div>
 </div>
 <div class="self-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-primary text-lg">arrow_forward</span>
+<span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">arrow_forward</span>
 </div>
 </div>
 
 <div class="group flex gap-4 p-5 bg-surface-container rounded-2xl cursor-pointer hover:bg-surface-container-high transition-colors">
 <div class="w-16 h-16 rounded-full flex-shrink-0 bg-surface-container-highest border border-outline/20 flex items-center justify-center">
-<span class="font-display text-xl text-primary/50 select-none">JM</span>
+<span class="font-display text-xl text-primary/50 select-none" aria-hidden="true">JM</span>
 </div>
 <div class="flex-1 min-w-0">
 <div class="flex items-start justify-between gap-2 mb-1">
 <h3 class="font-display text-xl text-on-surface">Javier Molina</h3>
 <div class="flex items-center gap-1 flex-shrink-0">
-<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16">star</span>
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 16" aria-hidden="true">star</span>
 <span class="text-primary text-xs font-bold">4.7</span>
 </div>
 </div>
@@ -349,7 +356,7 @@
 </div>
 </div>
 <div class="self-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-primary text-lg">arrow_forward</span>
+<span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">arrow_forward</span>
 </div>
 </div>
 
@@ -357,7 +364,7 @@
 <div class="grid grid-cols-3 gap-4 pt-2">
 <div class="p-4 bg-surface-container rounded-xl text-center">
 <p class="font-display text-2xl text-primary mb-1">+500</p>
-<p class="text-on-secondary-container text-xs uppercase tracking-wider">Barberos</p>
+<p class="text-on-secondary-container text-xs uppercase tracking-wider">Barberías</p>
 </div>
 <div class="p-4 bg-surface-container rounded-xl text-center">
 <p class="font-display text-2xl text-primary mb-1">24/7</p>
@@ -387,7 +394,7 @@
 <div class="w-20 h-20 rounded-full bg-surface border border-primary flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(242,202,79,0.1)]">
 <span class="text-primary font-display text-3xl font-bold italic">1</span>
 </div>
-<h4 class="font-headline text-xl text-on-surface mb-3">Elige tu barbería</h4>
+<h3 class="font-headline text-xl text-on-surface mb-3">Elige tu barbería</h3>
 <p class="text-on-secondary-container text-sm leading-relaxed">
                         Filtra por ubicación, valoraciones y el estilo específico que buscas para tu próximo cambio.
                     </p>
@@ -396,7 +403,7 @@
 <div class="w-20 h-20 rounded-full bg-surface border border-primary flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(242,202,79,0.1)]">
 <span class="text-primary font-display text-3xl font-bold italic">2</span>
 </div>
-<h4 class="font-headline text-xl text-on-surface mb-3">Selecciona tu servicio</h4>
+<h3 class="font-headline text-xl text-on-surface mb-3">Selecciona tu servicio</h3>
 <p class="text-on-secondary-container text-sm leading-relaxed">
                         Desde degradados clásicos hasta rituales de barba con toalla caliente. Tú decides el nivel.
                     </p>
@@ -405,7 +412,7 @@
 <div class="w-20 h-20 rounded-full bg-surface border border-primary flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(242,202,79,0.1)]">
 <span class="text-primary font-display text-3xl font-bold italic">3</span>
 </div>
-<h4 class="font-headline text-xl text-on-surface mb-3">Confirma tu cita</h4>
+<h3 class="font-headline text-xl text-on-surface mb-3">Confirma tu cita</h3>
 <p class="text-on-secondary-container text-sm leading-relaxed">
                         Elige el profesional y la hora que mejor te convenga. Recibe recordatorios automáticos.
                     </p>
@@ -419,28 +426,28 @@
 <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
 <div class="max-w-2xl">
 <h2 class="font-display text-5xl text-on-surface mb-4">Tu barbería, bajo control</h2>
-<p class="text-on-secondary-container text-lg">Digitaliza la esencia de tu taller. Kalos se encarga de la logística para que tú te enfoques en el arte.</p>
+<p class="text-on-secondary-container text-lg">Acepta reservas 24/7 sin llamadas, gestiona tu equipo y analiza tus ingresos — todo desde una sola app.</p>
 </div>
 </div>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="p-10 bg-surface-container rounded-xl flex flex-col gap-6 hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-primary text-5xl" data-icon="calendar_month">calendar_month</span>
+<span class="material-symbols-outlined text-primary text-5xl" aria-hidden="true">calendar_month</span>
 <div>
-<h4 class="font-headline text-xl text-on-surface mb-3 italic">Tu agenda en tiempo real</h4>
+<h3 class="font-headline text-xl text-on-surface mb-3 italic">Tu agenda en tiempo real</h3>
 <p class="text-on-secondary-container text-sm leading-relaxed">Sincronización instantánea en todos tus dispositivos. Evita solapamientos y huecos vacíos.</p>
 </div>
 </div>
 <div class="p-10 bg-surface-container rounded-xl flex flex-col gap-6 hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-primary text-5xl" data-icon="manage_accounts">manage_accounts</span>
+<span class="material-symbols-outlined text-primary text-5xl" aria-hidden="true">manage_accounts</span>
 <div>
-<h4 class="font-headline text-xl text-on-surface mb-3 italic">Gestiona cada cita</h4>
+<h3 class="font-headline text-xl text-on-surface mb-3 italic">Gestiona cada cita</h3>
 <p class="text-on-secondary-container text-sm leading-relaxed">Acepta, reprograma o cancela citas con un simple gesto. Comunicación directa con el cliente.</p>
 </div>
 </div>
 <div class="p-10 bg-surface-container rounded-xl flex flex-col gap-6 hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-primary text-5xl" data-icon="insights">insights</span>
+<span class="material-symbols-outlined text-primary text-5xl" aria-hidden="true">insights</span>
 <div>
-<h4 class="font-headline text-xl text-on-surface mb-3 italic">Panel de resultados</h4>
+<h3 class="font-headline text-xl text-on-surface mb-3 italic">Panel de resultados</h3>
 <p class="text-on-secondary-container text-sm leading-relaxed">Analiza tus ingresos, los servicios más demandados y el rendimiento de tu equipo.</p>
 </div>
 </div>
@@ -453,42 +460,176 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/10">
 <!-- Feature 1 -->
 <div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="update">update</span>
-<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Reservas 24/7</h5>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" aria-hidden="true">update</span>
+<h3 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Reservas 24/7</h3>
 <p class="text-on-secondary-container text-sm">Tu negocio nunca cierra. Permite que tus clientes reserven mientras duermes.</p>
 </div>
 <!-- Feature 2 -->
 <div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="groups">groups</span>
-<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Múltiples barberos</h5>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" aria-hidden="true">groups</span>
+<h3 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Múltiples barberos</h3>
 <p class="text-on-secondary-container text-sm">Gestión individualizada para cada miembro de tu equipo y sus especialidades.</p>
 </div>
 <!-- Feature 3 -->
 <div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="dashboard">dashboard</span>
-<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Panel de control</h5>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" aria-hidden="true">dashboard</span>
+<h3 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Panel de control</h3>
 <p class="text-on-secondary-container text-sm">Una visión 360 de tu negocio desde cualquier lugar del mundo.</p>
 </div>
 <!-- Feature 4 -->
 <div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="history">history</span>
-<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Historial de citas</h5>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" aria-hidden="true">history</span>
+<h3 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Historial de citas</h3>
 <p class="text-on-secondary-container text-sm">Conoce las preferencias de tus clientes antes de que crucen la puerta.</p>
 </div>
 <!-- Feature 5 -->
 <div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="phonelink_erase">phonelink_erase</span>
-<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Sin llamadas</h5>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" aria-hidden="true">phonelink_erase</span>
+<h3 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Sin llamadas</h3>
 <p class="text-on-secondary-container text-sm">Reduce las interrupciones telefónicas y optimiza el tiempo de corte.</p>
 </div>
 <!-- Feature 6 -->
 <div class="p-12 bg-surface-container-low hover:bg-surface-container transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="notifications_active">notifications_active</span>
-<h5 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Confirmaciones</h5>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" aria-hidden="true">notifications_active</span>
+<h3 class="font-headline font-bold text-on-surface mb-3 uppercase tracking-tighter">Confirmaciones</h3>
 <p class="text-on-secondary-container text-sm">Avisos automáticos vía push para reducir las ausencias injustificadas.</p>
 </div>
 </div>
 </div>
+</section>
+<!-- Pricing Section -->
+<section id="pricing" class="py-32 bg-surface">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="mb-16 text-center">
+      <span class="font-headline uppercase tracking-[0.3em] text-primary text-xs mb-4 block font-bold">Para barberías</span>
+      <h2 class="font-display text-5xl text-on-surface mb-4">Planes y precios</h2>
+      <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+      <p class="text-on-secondary-container max-w-xl mx-auto text-lg">Sin sorpresas. Para clientes, Kalos es siempre gratuito.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Plan Básico -->
+      <div class="p-8 bg-surface-container rounded-2xl flex flex-col gap-6 border border-outline-variant/10">
+        <div>
+          <p class="font-headline text-xs uppercase tracking-widest text-on-secondary-container mb-2">Básico</p>
+          <p class="font-display text-5xl text-on-surface">Gratis</p>
+          <p class="text-on-secondary-container text-sm mt-2">Para empezar sin compromiso</p>
+        </div>
+        <ul class="flex flex-col gap-3 text-sm text-on-secondary-container">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>1 barbero</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Reservas online 24/7</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Hasta 50 citas/mes</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Notificaciones push</li>
+        </ul>
+        <button onclick="document.getElementById('join-modal').classList.remove('hidden')" class="mt-auto w-full border border-primary/40 text-primary py-3 rounded-lg font-headline font-medium text-sm hover:bg-primary/5 transition-colors">Empezar gratis</button>
+      </div>
+      <!-- Plan Pro — destacado -->
+      <div class="p-8 bg-surface-container rounded-2xl flex flex-col gap-6 border-2 border-primary relative shadow-[0_0_40px_rgba(242,202,79,0.12)]">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">Más popular</div>
+        <div>
+          <p class="font-headline text-xs uppercase tracking-widest text-on-secondary-container mb-2">Pro</p>
+          <div class="flex items-end gap-1">
+            <p class="font-display text-5xl text-on-surface">29€</p>
+            <p class="text-on-secondary-container text-sm mb-2">/mes</p>
+          </div>
+          <p class="text-on-secondary-container text-sm mt-2">Para barberías en crecimiento</p>
+        </div>
+        <ul class="flex flex-col gap-3 text-sm text-on-secondary-container">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Hasta 5 barberos</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Citas ilimitadas</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Panel de analíticas</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Historial de clientes</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Soporte prioritario</li>
+        </ul>
+        <button onclick="document.getElementById('join-modal').classList.remove('hidden')" class="mt-auto w-full bg-primary-container text-on-primary py-3 rounded-lg font-headline font-bold text-sm hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(212,175,53,0.25)]">Empezar prueba gratuita</button>
+      </div>
+      <!-- Plan Business -->
+      <div class="p-8 bg-surface-container rounded-2xl flex flex-col gap-6 border border-outline-variant/10">
+        <div>
+          <p class="font-headline text-xs uppercase tracking-widest text-on-secondary-container mb-2">Business</p>
+          <div class="flex items-end gap-1">
+            <p class="font-display text-5xl text-on-surface">79€</p>
+            <p class="text-on-secondary-container text-sm mb-2">/mes</p>
+          </div>
+          <p class="text-on-secondary-container text-sm mt-2">Para cadenas y franquicias</p>
+        </div>
+        <ul class="flex flex-col gap-3 text-sm text-on-secondary-container">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Barberos ilimitados</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Múltiples sedes</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>API de integración</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Informes avanzados</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base" aria-hidden="true">check_circle</span>Account manager dedicado</li>
+        </ul>
+        <a href="mailto:hola@kalosapp.com" class="mt-auto w-full border border-primary/40 text-primary py-3 rounded-lg font-headline font-medium text-sm hover:bg-primary/5 transition-colors text-center">Contactar ventas</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ Section -->
+<section id="faq" class="py-32 bg-surface-container-low">
+  <div class="max-w-3xl mx-auto px-6 md:px-12">
+    <div class="mb-16">
+      <span class="font-headline uppercase tracking-[0.3em] text-primary text-xs mb-4 block font-bold">Preguntas frecuentes</span>
+      <h2 class="font-display text-5xl text-on-surface mb-4">Todo lo que necesitas saber</h2>
+      <div class="w-24 h-1 bg-primary"></div>
+    </div>
+    <div class="flex flex-col gap-4" id="faq-list">
+      <!-- FAQ Item -->
+      <div class="faq-item border border-outline-variant/15 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleFaq(this)">
+          <span class="font-headline font-medium text-on-surface text-sm">¿Es gratuito para los clientes?</span>
+          <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6">
+          <p class="text-on-secondary-container text-sm leading-relaxed">Sí, Kalos es completamente gratuito para los clientes. Puedes buscar barberías, ver disponibilidad y reservar citas sin ningún coste.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-outline-variant/15 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleFaq(this)">
+          <span class="font-headline font-medium text-on-surface text-sm">¿Puedo cancelar o reprogramar una cita?</span>
+          <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6">
+          <p class="text-on-secondary-container text-sm leading-relaxed">Sí. Puedes cancelar o reprogramar hasta 2 horas antes de tu cita directamente desde la app. La barbería recibe una notificación inmediata.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-outline-variant/15 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleFaq(this)">
+          <span class="font-headline font-medium text-on-surface text-sm">¿Cómo se gestionan los pagos?</span>
+          <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6">
+          <p class="text-on-secondary-container text-sm leading-relaxed">El pago se realiza directamente en la barbería al terminar el servicio. Kalos no procesa pagos en la app actualmente — simplemente gestiona tu agenda.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-outline-variant/15 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleFaq(this)">
+          <span class="font-headline font-medium text-on-surface text-sm">¿Qué pasa si el cliente no aparece?</span>
+          <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6">
+          <p class="text-on-secondary-container text-sm leading-relaxed">Kalos envía recordatorios automáticos al cliente 24h y 1h antes de la cita. En el plan Pro, puedes marcar clientes como "no-show" y el sistema los registra para futuras reservas.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-outline-variant/15 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleFaq(this)">
+          <span class="font-headline font-medium text-on-surface text-sm">¿Necesito instalar algo en mi barbería?</span>
+          <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6">
+          <p class="text-on-secondary-container text-sm leading-relaxed">Solo la app de Kalos en tu móvil o tablet. No necesitas ningún hardware adicional. El panel de control también está disponible desde el navegador web.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-outline-variant/15 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleFaq(this)">
+          <span class="font-headline font-medium text-on-surface text-sm">¿Puedo probar el plan Pro antes de pagar?</span>
+          <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6">
+          <p class="text-on-secondary-container text-sm leading-relaxed">Sí. Ofrecemos 30 días de prueba gratuita en el plan Pro sin necesidad de tarjeta de crédito. Puedes cancelar en cualquier momento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Testimonials -->
 <section class="py-32 bg-surface">
@@ -498,20 +639,20 @@
 <h2 class="font-display text-5xl text-on-surface mb-4">La experiencia Kalos</h2>
 <div class="w-24 h-1 bg-primary"></div>
 </div>
-<div class="grid md:grid-cols-3 gap-8">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Testimonial 1 — barbero -->
 <div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6">
 <div class="flex gap-1 mb-2">
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
 </div>
 <p class="font-display text-xl text-on-surface italic leading-relaxed">"Antes perdía 30 minutos al teléfono para dar cita a cada cliente. Ahora llego, abro la app y ya está todo organizado. Indispensable."</p>
 <div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
 <div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
-<span class="font-display text-base text-primary">PR</span>
+<span class="font-display text-base text-primary" aria-hidden="true">PR</span>
 </div>
 <div>
 <p class="text-on-surface font-bold text-sm">Pablo Ruiz</p>
@@ -522,16 +663,16 @@
 <!-- Testimonial 2 — cliente -->
 <div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6 md:mt-8">
 <div class="flex gap-1 mb-2">
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
 </div>
 <p class="font-display text-xl text-on-surface italic leading-relaxed">"Encontré mi barbero en dos minutos y reservé sin llamar. Llegué, me atendieron en el acto. Es la única forma en que quiero reservar ya."</p>
 <div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
 <div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
-<span class="font-display text-base text-primary">CM</span>
+<span class="font-display text-base text-primary" aria-hidden="true">CM</span>
 </div>
 <div>
 <p class="text-on-surface font-bold text-sm">Carlos Mendoza</p>
@@ -542,22 +683,62 @@
 <!-- Testimonial 3 — barbero -->
 <div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6">
 <div class="flex gap-1 mb-2">
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
-<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
 </div>
 <p class="font-display text-xl text-on-surface italic leading-relaxed">"El panel de control me da una visión clara de cada semana. Sé qué servicios funcionan y qué horas están más solicitadas. Un cambio real."</p>
 <div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
 <div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
-<span class="font-display text-base text-primary">LG</span>
+<span class="font-display text-base text-primary" aria-hidden="true">LG</span>
 </div>
 <div>
 <p class="text-on-surface font-bold text-sm">Laura García</p>
 <p class="text-on-secondary-container text-xs">Gerente · Barbería Noctua, Sevilla</p>
 </div>
 </div>
+</div>
+<!-- Testimonial 4 — propietario -->
+<div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6 md:mt-8">
+  <div class="flex gap-1 mb-2">
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+  </div>
+  <p class="font-display text-xl text-on-surface italic leading-relaxed">"Mi equipo pasó de gestionar WhatsApps todo el día a tenerlo todo organizado en la app. En tres semanas recuperamos más de 10 horas semanales."</p>
+  <div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
+    <div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
+      <span class="font-display text-base text-primary" aria-hidden="true">AG</span>
+    </div>
+    <div>
+      <p class="text-on-surface font-bold text-sm">Alejandro Gómez</p>
+      <p class="text-on-secondary-container text-xs">Propietario · Barber Society, Valencia</p>
+    </div>
+  </div>
+</div>
+<!-- Testimonial 5 — cliente -->
+<div class="relative p-10 bg-surface-container rounded-2xl flex flex-col gap-6">
+  <div class="flex gap-1 mb-2">
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+    <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 20" aria-hidden="true">star</span>
+  </div>
+  <p class="font-display text-xl text-on-surface italic leading-relaxed">"Llevo años yendo al mismo barbero y nunca había podido reservar sin llamar. Con Kalos lo hago en 30 segundos desde el metro. No entiendo cómo vivía sin esto."</p>
+  <div class="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/15">
+    <div class="w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
+      <span class="font-display text-base text-primary" aria-hidden="true">MF</span>
+    </div>
+    <div>
+      <p class="text-on-surface font-bold text-sm">Miguel Fernández</p>
+      <p class="text-on-secondary-container text-xs">Cliente · Madrid</p>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -570,14 +751,14 @@
 <p class="font-body text-xl md:text-2xl text-on-secondary-container mb-16 italic font-light">Disponible para iOS y Android. Únete a la nueva era del grooming.</p>
 <div class="flex flex-wrap justify-center gap-8">
 <button class="bg-[#000000] text-on-surface px-10 py-5 rounded-full flex items-center gap-4 hover:scale-105 transition-transform border border-outline-variant/20 group">
-<span class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors" data-icon="apple">ios</span>
+<span class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors" aria-hidden="true">ios</span>
 <div class="text-left">
 <div class="text-[10px] uppercase tracking-widest opacity-60">App Store</div>
 <div class="text-xl font-bold font-headline leading-none">iPhone</div>
 </div>
 </button>
 <button class="bg-[#000000] text-on-surface px-10 py-5 rounded-full flex items-center gap-4 hover:scale-105 transition-transform border border-outline-variant/20 group">
-<span class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors" data-icon="play_store">play_store_installed</span>
+<span class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors" aria-hidden="true">play_store_installed</span>
 <div class="text-left">
 <div class="text-[10px] uppercase tracking-widest opacity-60">Google Play</div>
 <div class="text-xl font-bold font-headline leading-none">Android</div>
@@ -591,16 +772,33 @@
 <div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-6">
 <div class="text-lg font-bold text-[#f2ca4f] font-headline">Kalos</div>
 <div class="flex gap-8">
-<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Privacy Policy</a>
+<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="mailto:legal@kalosapp.com">Privacy Policy</a>
 <a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Terms of Service</a>
-<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Contact</a>
+<a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="mailto:hola@kalosapp.com">Contact</a>
 <a class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] hover:text-[#f2ca4f] transition-colors" href="#">Press Kit</a>
 </div>
 <p class="font-manrope text-xs uppercase tracking-widest text-[#b7b5b4] opacity-100 hover:opacity-70 transition-opacity">
-                © 2025 Kalos. Crafted for the Nocturnal Artisan.
+                © 2026 Kalos. Crafted for the Nocturnal Artisan.
             </p>
 </div>
 </footer>
+<!-- Join the Club Modal -->
+<div id="join-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="document.getElementById('join-modal').classList.add('hidden')"></div>
+  <div class="relative bg-surface-container rounded-2xl p-10 max-w-md w-full border border-outline-variant/20 shadow-[0_40px_80px_rgba(0,0,0,0.8)]">
+    <button onclick="document.getElementById('join-modal').classList.add('hidden')" class="absolute top-4 right-4 text-on-secondary-container hover:text-on-surface transition-colors">
+      <span class="material-symbols-outlined" aria-hidden="true">close</span>
+    </button>
+    <span class="font-headline uppercase tracking-[0.3em] text-primary text-xs mb-4 block font-bold">Acceso anticipado</span>
+    <h2 class="font-display text-3xl text-on-surface mb-3">Únete al Club</h2>
+    <p class="text-on-secondary-container text-sm leading-relaxed mb-8">Sé el primero en acceder a Kalos. Recibirás acceso anticipado a la app, descuentos exclusivos de lanzamiento y novedades antes que nadie.</p>
+    <form onsubmit="handleJoinSubmit(event)" class="flex flex-col gap-4">
+      <input type="email" required placeholder="tu@email.com" class="w-full bg-surface-container-high border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface text-sm placeholder:text-on-secondary-container/50 focus:outline-none focus:border-primary transition-colors"/>
+      <button type="submit" class="w-full bg-primary-container text-on-primary py-3 rounded-lg font-headline font-bold text-sm hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(212,175,53,0.3)]">Quiero acceso anticipado</button>
+    </form>
+    <p class="text-on-secondary-container text-xs text-center mt-4 opacity-60">Sin spam. Puedes darte de baja cuando quieras.</p>
+  </div>
+</div>
 <script>
   // Mobile menu toggle
   const menuBtn = document.getElementById('menu-btn');
@@ -634,7 +832,7 @@
 
   // Active nav link on scroll
   const navLinks = document.querySelectorAll('.nav-link');
-  const sections = ['experience','the-artisans','for-barbers','download'].map(id => document.getElementById(id)).filter(Boolean);
+  const sections = ['experience','the-artisans','for-barbers','pricing','faq','download'].map(id => document.getElementById(id)).filter(Boolean);
 
   function setActiveLink(id) {
     navLinks.forEach(a => {
@@ -670,5 +868,28 @@
     el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
     observer.observe(el);
   });
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('.material-symbols-outlined');
+    const isOpen = !answer.classList.contains('hidden');
+    // Close all
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+    document.querySelectorAll('.faq-btn .material-symbols-outlined').forEach(i => i.style.transform = '');
+    // Open clicked if was closed
+    if (!isOpen) {
+      answer.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    }
+  }
+
+  // Join form submit
+  function handleJoinSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    form.innerHTML = '<p class="text-center text-on-surface font-display text-xl py-4">¡Listo! Te avisaremos pronto. <span class="text-primary">✓</span></p>';
+    setTimeout(() => document.getElementById('join-modal').classList.add('hidden'), 2500);
+  }
 </script>
 </body></html>
