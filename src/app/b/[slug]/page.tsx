@@ -116,50 +116,19 @@ export default function BookingPage() {
     const startsAt = new Date(selectedDay)
     startsAt.setHours(h, m, 0, 0)
 
-    // 1. Find or create anon client
-    const { data: existing } = await supabase
-      .from('clients')
-      .select('id')
-      .eq('barber_id', business.barber.id)
-      .eq('phone', clientPhone.trim())
-      .maybeSingle()
+    // Use SECURITY DEFINER RPC — bypasses RLS for anon users
+    const { error } = await supabase.rpc('create_booking', {
+      p_barber_id: business.barber.id,
+      p_client_name: clientName.trim(),
+      p_client_phone: clientPhone.trim(),
+      p_client_email: '',
+      p_service_id: selectedService.id,
+      p_starts_at: startsAt.toISOString(),
+      p_duration_minutes: selectedService.duration_minutes,
+      p_amount: selectedService.price,
+    })
 
-    let clientId = existing?.id
-
-    if (!clientId) {
-      const { data: newClient, error: clientErr } = await supabase
-        .from('clients')
-        .insert({
-          barber_id: business.barber.id,
-          name: clientName.trim(),
-          phone: clientPhone.trim(),
-        })
-        .select('id')
-        .single()
-
-      if (clientErr || !newClient) {
-        setSubmitError('No se pudo guardar tu información. Inténtalo de nuevo.')
-        setSubmitting(false)
-        return
-      }
-      clientId = newClient.id
-    }
-
-    // 2. Create appointment
-    const { error: apptErr } = await supabase
-      .from('appointments')
-      .insert({
-        barber_id: business.barber.id,
-        client_id: clientId,
-        service_id: selectedService.id,
-        starts_at: startsAt.toISOString(),
-        duration_minutes: selectedService.duration_minutes,
-        status: 'pending',
-        amount: selectedService.price,
-        is_paid: false,
-      })
-
-    if (apptErr) {
+    if (error) {
       setSubmitError('Error al crear la cita. Inténtalo de nuevo.')
       setSubmitting(false)
       return
