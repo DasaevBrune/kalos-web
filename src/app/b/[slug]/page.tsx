@@ -651,21 +651,38 @@ export default function BookingPage() {
               {DAY_NAMES[selectedDay.getDay()]} {selectedDay.getDate()} de {MONTH_NAMES[selectedDay.getMonth()]} a las {selectedHour}.
             </p>
             <div className="bg-[#1c1b1b] rounded-xl p-4 text-left border border-[#4d4635]/15 mb-4 text-sm flex flex-col gap-2">
-              <div className="flex justify-between">
-                <span className="text-[#b7b5b4]">Servicio</span>
-                <span className="text-[#e5e2e1] text-right max-w-[60%]">{serviceDisplayName(selectedServices)}</span>
+              {/* Main client */}
+              <div className="flex justify-between items-start">
+                <span className="text-[#b7b5b4]">Tú</span>
+                <div className="text-right max-w-[60%]">
+                  {selectedServices.map(s => (
+                    <p key={s.id} className="text-[#e5e2e1]">{s.name} — ${Number(s.price).toFixed(0)} ({s.duration_minutes} min)</p>
+                  ))}
+                </div>
               </div>
+
+              {/* Accompanists */}
               {accompanists.length > 0 && (
-                <div className="flex justify-between">
-                  <span className="text-[#b7b5b4]">Acompañantes</span>
-                  <span className="text-[#e5e2e1]">{accompanists.map(a => a.name).join(', ')}</span>
+                <div className="border-t border-[#4d4635]/15 pt-2 mt-1 flex flex-col gap-2">
+                  <p className="text-[#b7b5b4] text-xs uppercase tracking-wider">Acompañantes</p>
+                  {accompanists.map((a, i) => (
+                    <div key={a.key} className="flex justify-between items-start">
+                      <span className="text-[#e5e2e1] font-medium">{a.name.trim() || `Acompañante ${i + 1}`}</span>
+                      <div className="text-right max-w-[60%]">
+                        {a.selectedServices.map(s => (
+                          <p key={s.id} className="text-[#b7b5b4]">{s.name} — ${Number(s.price).toFixed(0)} ({s.duration_minutes} min)</p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               )}
-              <div className="flex justify-between">
+
+              <div className="flex justify-between border-t border-[#4d4635]/20 pt-2 mt-1">
                 <span className="text-[#b7b5b4]">Duración total</span>
                 <span className="text-[#e5e2e1]">{grandDuration} min</span>
               </div>
-              <div className="flex justify-between border-t border-[#4d4635]/20 pt-2 mt-1">
+              <div className="flex justify-between">
                 <span className="text-[#b7b5b4]">Total a pagar</span>
                 <span className="text-[#f2ca4f] font-bold">${grandTotal.toFixed(0)}</span>
               </div>
